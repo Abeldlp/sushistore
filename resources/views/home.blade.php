@@ -2,22 +2,24 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+    <div class="row">
+            @foreach ($orders as $order)
+            <div class="col-md-3 border rounded p-2 m-1">
+            <p>Order {{ $order->id }}</p>
+            <p>Attended by: {{ $order->user->name }}</p>
+            @foreach ($order->orderitems as $orderitem)
+                <p>{{ $orderitem->product->name }} 
+                    <span>{{ $orderitem->product->price }}€</span> 
+                    <br/> 
+                    <span>pieces: {{ $orderitem->product_qty }},</span> 
+                    <span>total: {{ $orderitem->product->price * $orderitem->product_qty}}€</span>
+                </p> 
+            @endforeach
+            <p>Total:  </p>
         </div>
-    </div>
+        @endforeach
+        
+    </div>    
+
 </div>
 @endsection
