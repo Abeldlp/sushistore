@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Product;
 use Auth;
 
 class HomeController extends Controller
@@ -26,7 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         $orders = Order::all();
-        
         return view('home', compact('orders'));
+    }
+
+    public function create(){
+        $products = Product::all();
+        
+        return view('orders', compact('products'));
     }
 }

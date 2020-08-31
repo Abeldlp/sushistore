@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/orders', 'HomeController@create');
+
+//ORDER ROUTES
+Route::post('/addorder', 'OrdersController@createOrder');
+Route::post('/oderitem', 'OrdersController@addITem');
+Route::get('/lastorderitems', 'OrdersController@lastorderitems');
+Route::get('/lastorder', 'OrdersController@lastorder');
+Route::delete('/delete/item/{id}', 'OrdersController@delete');
+
+//PRODUCTS ROUTE
+Route::get('/products/add', 'ProductsController@create');
+Route::post('/products', 'ProductsController@store');

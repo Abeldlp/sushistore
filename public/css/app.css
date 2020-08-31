@@ -10905,6 +10905,12 @@ a.text-dark:focus {
 }
 
 .navbar {
-  background-color: #b87562;
+  background-color: #99d6d3;
+}
+
+#order-card {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #99d6d3;
 }
 
