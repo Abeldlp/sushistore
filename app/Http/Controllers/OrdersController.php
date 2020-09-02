@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
+
+    
+
     //Creates a new order
     public function createOrder (){
         $order = new Order;
@@ -38,7 +41,7 @@ class OrdersController extends Controller
             'product_id' => 'required',
             'product_qty' => 'required'
         ]);
-
+        
         
         OrderItem::create([
             'order_id' => $lastOrder->id,

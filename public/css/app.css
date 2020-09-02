@@ -10905,7 +10905,7 @@ a.text-dark:focus {
 }
 
 .navbar {
-  background-color: #99d6d3;
+  background: linear-gradient(34deg, #2dc8ed 0%, #548af0 100%);
 }
 
 #order-card {

@@ -42,7 +42,9 @@ export default {
         product_qty: this.quantity,
       };
 
-      axios.post("http://127.0.0.1:8000/oderitem", Item);
+      if (this.quantity > 0) {
+        axios.post("http://127.0.0.1:8000/oderitem", Item);
+      }
 
       this.quantity = 0;
       window.location = "/orders";

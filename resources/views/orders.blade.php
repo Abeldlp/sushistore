@@ -2,7 +2,7 @@
 
 @section('content')
     <h2 class="text-center">Products</h2>
-    <div class="d-flex">
+    <div class="d-flex flex-wrap justify-content-center">
         @foreach ($products as $product)
         <product-component v-bind:product="{{ $product }}"></product-component>
         @endforeach

@@ -1928,6 +1928,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Cart",
   data: function data() {
@@ -1954,6 +1955,13 @@ __webpack_require__.r(__webpack_exports__);
     openMenu: function openMenu() {
       this.out = !this.out;
       this.text == "K" ? this.text = "X" : this.text = "K";
+    },
+    getTotal: function getTotal() {
+      return this.order_products.map(function (item) {
+        return item.price * item.product_qty;
+      }).reduce(function (prev, next) {
+        return prev + next;
+      });
     }
   }
 });
@@ -2036,7 +2044,11 @@ __webpack_require__.r(__webpack_exports__);
         product_id: this.product.id,
         product_qty: this.quantity
       };
-      axios.post("http://127.0.0.1:8000/oderitem", Item);
+
+      if (this.quantity > 0) {
+        axios.post("http://127.0.0.1:8000/oderitem", Item);
+      }
+
       this.quantity = 0;
       window.location = "/orders";
     }
@@ -6477,7 +6489,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#kart-menu[data-v-b7f93bea] {\r\n  position: absolute;\r\n  right: 20px;\r\n  top: 60px;\n}\nbutton[data-v-b7f93bea] {\r\n  border: none;\r\n  outline: none;\r\n  height: 30px;\r\n  width: 30px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  background-color: #e45c42;\r\n  color: white;\r\n  border-radius: 30px;\r\n  transition: all ease-in-out 0.2s;\n}\nbutton[data-v-b7f93bea]:hover {\r\n  background-color: tomato;\n}\n.slide-fade-enter-active[data-v-b7f93bea] {\r\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active[data-v-b7f93bea] {\r\n  transition: all 0.3s ease-in-out;\n}\n.slide-fade-enter[data-v-b7f93bea],\r\n.slide-fade-leave-to[data-v-b7f93bea] {\r\n  transform: translateX(10px);\r\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n#kart-menu[data-v-b7f93bea] {\r\n  position: absolute;\r\n  right: 20px;\r\n  top: 60px;\n}\n#btn[data-v-b7f93bea] {\r\n  border: none;\r\n  outline: none;\r\n  height: 30px;\r\n  width: 30px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  background: tomato;\r\n  color: white;\r\n  border-radius: 30px;\n}\nbutton[data-v-b7f93bea] {\r\n  border: none;\r\n  outline: none;\r\n  height: 30px;\r\n  width: 30px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  background: linear-gradient(\r\n    50deg,\r\n    rgba(255, 171, 29, 1) 0%,\r\n    rgba(248, 80, 28, 1) 100%\r\n  );\r\n  color: white;\r\n  border-radius: 30px;\r\n  transition: all ease-in-out 0.2s;\n}\n.addlist[data-v-b7f93bea] {\r\n  color: white;\r\n  background: linear-gradient(\r\n    50deg,\r\n    rgba(255, 171, 29, 1) 0%,\r\n    rgba(248, 80, 28, 1) 100%\r\n  );\r\n  width: 80%;\r\n  margin: auto;\n}\n.slide-fade-enter-active[data-v-b7f93bea] {\r\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active[data-v-b7f93bea] {\r\n  transition: all 0.3s ease-in-out;\n}\n.slide-fade-enter[data-v-b7f93bea],\r\n.slide-fade-leave-to[data-v-b7f93bea] {\r\n  transform: translateX(10px);\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -38325,12 +38337,17 @@ var render = function() {
     "div",
     { staticClass: "d-flex", attrs: { id: "kart-menu" } },
     [
-      _c("button", { on: { click: _vm.openMenu } }, [_vm._v(_vm._s(_vm.text))]),
+      _c(
+        "button",
+        { staticClass: "mr-2 shadow-sm", on: { click: _vm.openMenu } },
+        [_vm._v(_vm._s(_vm.text))]
+      ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "slide-fade" } }, [
         _vm.out
           ? _c(
               "div",
+              { staticClass: "bg-light shadow p-5 rounded" },
               [
                 _c("h2", [_vm._v("Current cart")]),
                 _vm._v(" "),
@@ -38358,6 +38375,7 @@ var render = function() {
                           "button",
                           {
                             staticClass: "mb-1",
+                            attrs: { id: "btn" },
                             on: {
                               click: function($event) {
                                 return _vm.deleteItem(product.orderID)
@@ -38371,7 +38389,11 @@ var render = function() {
                   ])
                 }),
                 _vm._v(" "),
-                _c("button", [_vm._v("Pay")])
+                _c("p", [
+                  _vm._v("Total : " + _vm._s(_vm.getTotal().toFixed(2)) + " €")
+                ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "addlist ml-3" }, [_vm._v("Pay")])
               ],
               2
             )
