@@ -5,14 +5,16 @@
       <div v-if="out" class="bg-light shadow p-5 rounded">
         <h2>Current cart</h2>
         <div v-for="product in order_products" :key="product.name">
-          <div class="d-flex align-items-center justify-content-center m-1">
+          <div class="d-flex align-items-center justify-content-end m-1">
             <p
               class="pt-2 pr-2"
             >{{ product.name }} ( {{ product.product_qty }} ) {{ product.price * product.product_qty }}€</p>
             <button id="btn" class="mb-1" @click="deleteItem(product.orderID)">x</button>
           </div>
         </div>
-        <p>Total : {{getTotal().toFixed(2)}} €</p>
+        <p>
+          <strong>Total : {{getTotal().toFixed(2)}} €</strong>
+        </p>
         <button class="addlist ml-3">Pay</button>
       </div>
     </transition>

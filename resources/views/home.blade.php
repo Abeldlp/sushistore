@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <neworder-component></neworder-component>
-    <div class="row">
+    <div class="row d-flex justify-content-center">
             @foreach ($orders as $order)
             <div class="col-md-3 p-2 m-1" id="order-card">
             <p class="text-center"><small>Order</small> <strong>{{ $order->id }}</strong></p>

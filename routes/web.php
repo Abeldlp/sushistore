@@ -32,3 +32,6 @@ Route::delete('/delete/item/{id}', 'OrdersController@delete');
 //PRODUCTS ROUTE
 Route::get('/products/add', 'ProductsController@create');
 Route::post('/products', 'ProductsController@store');
+
+//EMPLOYEES ROUTES
+Route::get('/employees', 'EmployeesController@index');
