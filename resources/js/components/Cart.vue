@@ -15,7 +15,9 @@
         <p>
           <strong>Total : {{getTotal().toFixed(2)}} €</strong>
         </p>
-        <button class="addlist ml-3">Pay</button>
+        <a href="/home">
+          <button class="addlist ml-3">Pay</button>
+        </a>
       </div>
     </transition>
   </div>

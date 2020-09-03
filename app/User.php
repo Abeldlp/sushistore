@@ -37,6 +37,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function boot(){
+        parent::boot();
+
+        static::created(
+            function($user){
+                $user->employee()->create([
+                    'position' => 'Employee',
+                    'profile_image' => '/images/noimage.png'
+                ]);
+            }
+        );
+    }
+
     public function orders (){
         return $this->hasMany('App\Order');
     }

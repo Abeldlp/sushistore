@@ -1931,6 +1931,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Cart",
   data: function data() {
@@ -38450,7 +38452,9 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("button", { staticClass: "addlist ml-3" }, [_vm._v("Pay")])
+                _c("a", { attrs: { href: "/home" } }, [
+                  _c("button", { staticClass: "addlist ml-3" }, [_vm._v("Pay")])
+                ])
               ],
               2
             )

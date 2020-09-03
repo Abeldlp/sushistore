@@ -34,7 +34,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <a  class="nav-link text-light" href="/home">Home</a>
-                        <a  class="nav-link text-light" href="/orders">Orders</a>
                         <a  class="nav-link text-light" href="/employees">Employees</a>
                     </ul>
 

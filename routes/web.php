@@ -35,3 +35,5 @@ Route::post('/products', 'ProductsController@store');
 
 //EMPLOYEES ROUTES
 Route::get('/employees', 'EmployeesController@index');
+Route::get('/employees/edit/{id}', 'EmployeesController@edit');
+Route::put('/employees/update/{id}', 'EmployeesController@update');
