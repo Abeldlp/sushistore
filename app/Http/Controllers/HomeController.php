@@ -39,4 +39,13 @@ class HomeController extends Controller
         $orders = Order::all();
         return view('complete', compact('orders'));
     }
+
+    public function orderout($id){
+        $order = Order::findOrFail($id);
+        
+        $order->complete = true;
+        $order->update();
+        
+        return redirect('/home');
+    }
 }
