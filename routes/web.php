@@ -27,6 +27,7 @@ Route::post('/addorder', 'OrdersController@createOrder');
 Route::post('/oderitem', 'OrdersController@addITem');
 Route::get('/lastorderitems', 'OrdersController@lastorderitems');
 Route::get('/lastorder', 'OrdersController@lastorder');
+Route::get('/complete', 'HomeController@complete');
 Route::delete('/delete/item/{id}', 'OrdersController@delete');
 
 //PRODUCTS ROUTE

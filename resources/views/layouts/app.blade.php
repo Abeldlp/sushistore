@@ -33,8 +33,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a  class="nav-link text-light" href="/home">Home</a>
+                        <a  class="nav-link text-light" href="/home">Orders</a>
+                        <a  class="nav-link text-light" href="/complete">Completed orders</a>
                         <a  class="nav-link text-light" href="/employees">Employees</a>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

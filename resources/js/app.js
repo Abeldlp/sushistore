@@ -29,6 +29,7 @@ Vue.component(
     "neworder-component",
     require("./components/NewOrder.vue").default
 );
+Vue.component("total-component", require("./components/Total.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -8,7 +8,7 @@
           <div class="d-flex align-items-center justify-content-end m-1">
             <p
               class="pt-2 pr-2"
-            >{{ product.name }} ( {{ product.product_qty }} ) {{ product.price * product.product_qty }}€</p>
+            >{{ product.name }} ( {{ product.product_qty }} ) {{ (product.price * product.product_qty).toFixed(2) }} €</p>
             <button id="btn" class="mb-1" @click="deleteItem(product.orderID)">x</button>
           </div>
         </div>

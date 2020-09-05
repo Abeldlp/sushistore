@@ -32,7 +32,11 @@ class HomeController extends Controller
 
     public function create(){
         $products = Product::all();
-        
         return view('orders', compact('products'));
+    }
+
+    public function complete(){
+        $orders = Order::all();
+        return view('complete', compact('orders'));
     }
 }
