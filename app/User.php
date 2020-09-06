@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function employee (){
         return $this->hasOne('App\Employee');
     }
+
+    public function weeks (){
+        return $this->hasMany('App\Shift');
+    }
 }
