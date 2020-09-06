@@ -62,6 +62,9 @@
                                     <a class="dropdown-item" href="/products/add">
                                         Add product
                                      </a>
+                                     <a class="dropdown-item" href="/shift/add">
+                                        Add shift
+                                     </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

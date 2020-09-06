@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\User;
+
+class ShiftsController extends Controller
+{
+    public function show ($id){
+        $user = User::findOrFail($id);
+        return view('shifts.show', compact('user'));
+    }
+
+    public function create(){
+        $users = User::all();
+        return view('shifts.create', compact('users'));
+    }
+
+    public function store(Request $request){
+        dd($request);
+    }
+}

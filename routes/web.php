@@ -39,3 +39,7 @@ Route::post('/products', 'ProductsController@store');
 Route::get('/employees', 'EmployeesController@index');
 Route::get('/employees/edit/{id}', 'EmployeesController@edit');
 Route::put('/employees/update/{id}', 'EmployeesController@update');
+
+//SHIFTS ROUTES
+Route::get('/shift/add', 'ShiftsController@create');
+Route::get('/shift/{id}', 'ShiftsController@show');
