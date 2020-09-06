@@ -41,6 +41,7 @@ Route::get('/employees/edit/{id}', 'EmployeesController@edit');
 Route::put('/employees/update/{id}', 'EmployeesController@update');
 
 //SHIFTS ROUTES
+Route::get('/shift', 'ShiftsController@index');
 Route::get('/shift/add', 'ShiftsController@create');
 Route::post('/shift/new', 'ShiftsController@store');
 Route::get('/shift/{id}', 'ShiftsController@show');

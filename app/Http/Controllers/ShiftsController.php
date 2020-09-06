@@ -8,6 +8,11 @@ use App\Shift;
 
 class ShiftsController extends Controller
 {
+    public function index (){
+        $user = User::all();
+        return view('shifts.index', compact('user'));
+    }
+
     public function show ($id){
         $user = User::findOrFail($id);
         return view('shifts.show', compact('user'));
