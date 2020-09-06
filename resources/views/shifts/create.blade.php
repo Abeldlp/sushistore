@@ -4,11 +4,12 @@
     <div class="container">
         <h1>Shift create</h1>
         <form action="/shift/new" method="post">
+            @csrf
             <div class="form-group">
                 <label for="monday">Employee</label>
                 <select class="form-control" name="user_id" id="">
                   @foreach ($users as $user)
-                    <option>{{ $user->name }}</option>
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                   @endforeach
                 </select>
               </div>

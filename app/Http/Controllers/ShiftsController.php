@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Shift;
 
 class ShiftsController extends Controller
 {
@@ -18,6 +19,17 @@ class ShiftsController extends Controller
     }
 
     public function store(Request $request){
-        dd($request);
+        $data = $request->validate([
+            'user_id' => '',
+            'monday' => '',
+            'tuesday' => '',
+            'wednesday' => '',
+            'thursday' => '',
+            'friday' => '',
+        ]);
+
+        Shift::create($data);
+
+        return redirect('/shift/'.$data['user_id']);
     }
 }
