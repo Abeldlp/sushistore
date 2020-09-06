@@ -31,7 +31,7 @@ Route::get('/complete', 'HomeController@complete');
 Route::put('/complete/order/{id}', 'HomeController@orderout');
 Route::delete('/delete/item/{id}', 'OrdersController@delete');
 
-//PRODUCTS ROUTE
+//PRODUCTS ROUTES
 Route::get('/products/add', 'ProductsController@create');
 Route::post('/products', 'ProductsController@store');
 
