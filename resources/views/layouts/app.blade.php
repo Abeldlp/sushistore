@@ -37,6 +37,7 @@
                         <a  class="nav-link text-light" href="/complete">Completed orders</a>
                         <a  class="nav-link text-light" href="/employees">Employees</a>
                         <a  class="nav-link text-light" href="/shift">Shift</a>
+                        <a  class="nav-link text-light" href="/vlogs">News</a>
                         
                     </ul>
 
