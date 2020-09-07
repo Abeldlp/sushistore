@@ -48,6 +48,9 @@ Route::get('/shift/{id}', 'ShiftsController@show');
 
 //VLOGS ROUTES
 Route::get('/vlogs', 'VlogsController@index');
+Route::get('/vlogs/add', 'VlogsController@create');
+Route::post('/vlogs/create', 'VlogsController@store');
 Route::get('/vlogs/edit/{id}', 'VlogsController@edit');
 Route::put('/vlogs/update/{id}', 'VlogsController@update');
+Route::delete('/vlogs/delete/{id}', 'VlogsController@delete');
 Route::get('/vlogs/{id}', 'VlogsController@show');

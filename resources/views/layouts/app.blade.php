@@ -67,6 +67,9 @@
                                      <a class="dropdown-item" href="/shift/add">
                                         Add shift
                                      </a>
+                                     <a class="dropdown-item" href="/vlogs/add">
+                                        Add Vlog
+                                     </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
