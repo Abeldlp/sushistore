@@ -70,7 +70,9 @@ class VlogPolicy
      */
     public function delete(User $user, Vlog $vlog)
     {
-        //
+        return $user->id == 1
+                ?Response::allow()
+                :Response::deny('Only Admin is authorized to delete');
     }
 
     /**

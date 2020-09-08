@@ -62,7 +62,8 @@ class VlogsController extends Controller
         return redirect('/vlogs/'.$vlog->id);
     }
 
-    public function delete($id){
+    public function delete(Vlog $vlog, $id){
+        $this->authorize('delete', $vlog);
         Vlog::destroy($id);
         
         return redirect('/vlogs');
