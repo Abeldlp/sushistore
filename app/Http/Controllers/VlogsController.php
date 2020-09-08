@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vlog;
+use App\USer;
+use Auth;
 
 class VlogsController extends Controller
 {
@@ -22,12 +24,17 @@ class VlogsController extends Controller
         return view('vlogs.show', compact('vlog'));
     }
 
-    public function edit($id){
+    public function edit(Vlog $vlog, $id){
+        //Authorizing admin update
+        $this->authorize('update', $vlog);
+
         $vlog = Vlog::findOrFail($id);
         return view('vlogs.edit', compact('vlog'));
     }
 
-    public function create(){
+    public function create(Vlog $vlog){
+        //Authorizing the Admin to create News feed
+        $this->authorize('create', $vlog);
         return view('vlogs.create');
     }
 
@@ -50,7 +57,6 @@ class VlogsController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
-
         $vlog = Vlog::findOrFail($id);
         $vlog->update($data);
         return redirect('/vlogs/'.$vlog->id);
